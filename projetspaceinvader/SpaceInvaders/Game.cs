@@ -11,6 +11,7 @@ namespace SpaceInvaders
     class Game
     {
 
+        SpaceShip playerShip;
         #region GameObjects management
         /// <summary>
         /// Set of all game objects currently in the game
@@ -85,6 +86,7 @@ namespace SpaceInvaders
         /// <param name="gameSize">Size of the game area</param>
         private Game(Size gameSize)
         {
+            this.playerShip = new SpaceShip(5, gameSize.Width/2-12, gameSize.Height-26,3);
             this.gameSize = gameSize;
         }
 
@@ -121,13 +123,15 @@ namespace SpaceInvaders
             // add new game objects
             gameObjects.UnionWith(pendingNewGameObjects);
             pendingNewGameObjects.Clear();
-
+           // GameObject spaceShip = this.playerShip;
+            AddNewGameObject(playerShip);
 
             // if space is pressed
             if (keyPressed.Contains(Keys.Space))
             {
                 // create new BalleQuiTombe
                 GameObject newObject = new BalleQuiTombe(gameSize.Width / 2, 0);
+               
                 // add it to the game
                 AddNewGameObject(newObject);
                 // release key space (no autofire)
