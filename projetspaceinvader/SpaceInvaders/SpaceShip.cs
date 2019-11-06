@@ -8,13 +8,13 @@ namespace SpaceInvaders
 {
 	class SpaceShip : GameObject
 	{
-		double speedPixelPerSecond = 0;
+		double speedPixelPerSecond = 10;
 		Vecteur2D position = new Vecteur2D();
         int lives = 0;
 		Bitmap image = SpaceInvaders.Properties.Resources.ship3;
 
         public SpaceShip(){
-        	this.speedPixelPerSecond = 0;
+        	this.speedPixelPerSecond = 10;
             this.position.X = 0;
             this.position.Y = 0;
             this.lives = 0;
@@ -27,6 +27,17 @@ namespace SpaceInvaders
         }
 
         public override void Update(Game gameInstance, double deltaT){
+            //TO DOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+             if (keyPressed.Contains(Keys.left))
+            {
+                // create new BalleQuiTombe
+                this.position.X=position.X;
+               
+                // add it to the game
+                AddNewGameObject(newObject);
+                // release key space (no autofire)
+                ReleaseKey(Keys.Space);
+            }
 
         }
         public override void Draw(Game gameInstance, Graphics graphics){
