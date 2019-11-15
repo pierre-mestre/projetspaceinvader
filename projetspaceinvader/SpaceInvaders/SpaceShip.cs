@@ -6,14 +6,12 @@ using System.Drawing;
 using System.Windows.Forms;
 using SpaceInvaders.Resources;
 
-namespace SpaceInvaders
+namespace SpaceInvaders 
 {
-    class SpaceShip : GameObject
+    class SpaceShip : SimpleObject
     {
         double speedPixelPerSecond = 10;
-        Vecteur2D position = new Vecteur2D();
-        int lives = 0;
-        Bitmap image = SpaceInvaders.Properties.Resources.ship3;
+
         Missile missile = null ;
 
         public SpaceShip(){
@@ -22,6 +20,7 @@ namespace SpaceInvaders
             this.position.Y = 0;
             this.lives = 0;
             this.missile = null;
+            this.image = SpaceInvaders.Properties.Resources.ship3;
         }
         public SpaceShip(double speedPixelPerSecond, double positionX, double positionY, int lives ){
             this.speedPixelPerSecond = speedPixelPerSecond;
@@ -29,6 +28,7 @@ namespace SpaceInvaders
             this.position.Y = positionY;
             this.lives = lives;
             this.missile = null;
+            this.image = SpaceInvaders.Properties.Resources.ship3;
         }
 
         public override void Update(Game gameInstance, double deltaT){
@@ -39,6 +39,7 @@ namespace SpaceInvaders
                 }else{
                     this.position.X=position.X-speedPixelPerSecond;
                 }
+                 gameInstance.ReleaseKey(Keys.Left);
             }
             if (gameInstance.keyPressed.Contains(Keys.Right))
             {
@@ -47,6 +48,7 @@ namespace SpaceInvaders
                 }else{
                     this.position.X=position.X+speedPixelPerSecond;
                 }
+                 gameInstance.ReleaseKey(Keys.Right);
             }
             if (gameInstance.keyPressed.Contains(Keys.Space))
             {
@@ -60,16 +62,7 @@ namespace SpaceInvaders
             }
 
         }
-        public override void Draw(Game gameInstance, Graphics graphics){
-            graphics.DrawImage(image, Convert.ToSingle(position.X), Convert.ToSingle(position.Y), image.Width, image.Height);
-        }
-        public override bool IsAlive(){
-            if (this.lives > 0){
-                return true;
-            }else{
-                return false;
-            }
-        }
+     
 
         public void shoot()
         {

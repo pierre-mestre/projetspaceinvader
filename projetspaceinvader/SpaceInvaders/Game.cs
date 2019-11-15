@@ -12,6 +12,10 @@ namespace SpaceInvaders
     {
 
         SpaceShip playerShip;
+        enum GameState  {PLAY, PAUSE};
+        GameState state;
+
+
         #region GameObjects management
         /// <summary>
         /// Set of all game objects currently in the game
@@ -111,6 +115,24 @@ namespace SpaceInvaders
         /// <param name="g">Graphics to draw in</param>
         public void Draw(Graphics g)
         {
+            Font drawFont = new Font("Arial", 20);
+            SolidBrush drawBrush = new SolidBrush(Color.Black);
+
+            // Create point for upper-left corner of drawing.
+            float x = gameSize.Width/2-(state.ToString().Length*10);
+            float y = gameSize.Height / 2;
+
+            // Set format of string.
+            StringFormat drawFormat = new StringFormat();
+            drawFormat.FormatFlags = StringFormatFlags.DisplayFormatControl;
+
+            // Draw string to screen.
+            if (state == GameState.PAUSE)
+            {
+                g.DrawString(state.ToString(), drawFont, drawBrush, x, y, drawFormat);
+            }
+            
+         
             foreach (GameObject gameObject in gameObjects)
                 gameObject.Draw(this, g);       
         }
@@ -120,32 +142,53 @@ namespace SpaceInvaders
         /// </summary>
         public void Update(double deltaT)
         {
-            // add new game objects
-            gameObjects.UnionWith(pendingNewGameObjects);
-            pendingNewGameObjects.Clear();
-           // GameObject spaceShip = this.playerShip;
-            AddNewGameObject(playerShip);
+            if (state == GameState.PLAY) {
 
-            // if space is pressed
-            // if (keyPressed.Contains(Keys.Space))
-            // {
-            //     // create new BalleQuiTombe
-            //     GameObject newObject = new BalleQuiTombe(gameSize.Width / 2, 0);
-               
-            //     // add it to the game
-            //     AddNewGameObject(newObject);
-            //     // release key space (no autofire)
-            //     ReleaseKey(Keys.Space);
-            // }
+                // add new game objects
+                gameObjects.UnionWith(pendingNewGameObjects);
+                pendingNewGameObjects.Clear();
+                // GameObject spaceShip = this.playerShip;
+                AddNewGameObject(playerShip);
 
-            // update each game object
-            foreach (GameObject gameObject in gameObjects)
+                if (keyPressed.Contains(Keys.P))
+                {
+                    if (state == GameState.PLAY)
+                    {
+                        state = GameState.PAUSE;
+                    }
+                    else if (state == GameState.PAUSE)
+                    {
+                        state = GameState.PLAY;
+                    }
+                    ReleaseKey(Keys.P);
+
+                }
+
+
+                // update each game object
+                foreach (GameObject gameObject in gameObjects)
+                {
+                    gameObject.Update(this, deltaT);
+                }
+
+                // remove dead objects
+                gameObjects.RemoveWhere(gameObject => !gameObject.IsAlive());
+            }else if (state == GameState.PAUSE)
             {
-                gameObject.Update(this, deltaT);
-            }
+                if (keyPressed.Contains(Keys.P))
+                {
+                    if (state == GameState.PLAY)
+                    {
+                        state = GameState.PAUSE;
+                    }
+                    else if (state == GameState.PAUSE)
+                    {
+                        state = GameState.PLAY;
+                    }
+                    ReleaseKey(Keys.P);
 
-            // remove dead objects
-            gameObjects.RemoveWhere(gameObject => !gameObject.IsAlive());
+                }
+            }
         }
         #endregion
     }
