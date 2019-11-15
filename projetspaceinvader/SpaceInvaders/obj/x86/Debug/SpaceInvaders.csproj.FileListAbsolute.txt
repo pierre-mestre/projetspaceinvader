@@ -7,3 +7,12 @@ C:\Users\mestrep\Desktop\proje spaceinv\projetspaceinvader\SpaceInvaders\obj\x86
 C:\Users\mestrep\Desktop\proje spaceinv\projetspaceinvader\SpaceInvaders\obj\x86\Debug\SpaceInvaders.csproj.CoreCompileInputs.cache
 C:\Users\mestrep\Desktop\proje spaceinv\projetspaceinvader\SpaceInvaders\obj\x86\Debug\SpaceInvaders.exe
 C:\Users\mestrep\Desktop\proje spaceinv\projetspaceinvader\SpaceInvaders\obj\x86\Debug\SpaceInvaders.pdb
+C:\Users\mestrep\Desktop\projetspaceinvader\projetspaceinvader\SpaceInvaders\obj\x86\Debug\SpaceInvaders.csprojAssemblyReference.cache
+C:\Users\mestrep\Desktop\projetspaceinvader\projetspaceinvader\SpaceInvaders\obj\x86\Debug\SpaceInvaders.GameForm.resources
+C:\Users\mestrep\Desktop\projetspaceinvader\projetspaceinvader\SpaceInvaders\obj\x86\Debug\SpaceInvaders.Properties.Resources.resources
+C:\Users\mestrep\Desktop\projetspaceinvader\projetspaceinvader\SpaceInvaders\obj\x86\Debug\SpaceInvaders.csproj.GenerateResource.cache
+C:\Users\mestrep\Desktop\projetspaceinvader\projetspaceinvader\SpaceInvaders\obj\x86\Debug\SpaceInvaders.csproj.CoreCompileInputs.cache
+C:\Users\mestrep\Desktop\projetspaceinvader\projetspaceinvader\SpaceInvaders\obj\x86\Debug\SpaceInvaders.exe
+C:\Users\mestrep\Desktop\projetspaceinvader\projetspaceinvader\SpaceInvaders\obj\x86\Debug\SpaceInvaders.pdb
+C:\Users\mestrep\Desktop\projetspaceinvader\projetspaceinvader\SpaceInvaders\bin\Debug\SpaceInvaders.exe
+C:\Users\mestrep\Desktop\projetspaceinvader\projetspaceinvader\SpaceInvaders\bin\Debug\SpaceInvaders.pdb
