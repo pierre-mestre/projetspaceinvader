@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System;
 
-namespace SpaceInvaders.Resources
+namespace SpaceInvaders
 {
 	class Missile : SimpleObject
 	{
@@ -43,7 +43,13 @@ namespace SpaceInvaders.Resources
         }
 		public override void Update(Game gameInstance, double deltaT){
 			position.Y = position.Y-vitesse;
+            foreach(GameObject gameObject in gameInstance.gameObjects)
+            {
+                gameObject.Collision(this);
+            }
 		}
-		
-	}
+
+     
+
+    }
 }

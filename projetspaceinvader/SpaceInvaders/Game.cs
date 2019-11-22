@@ -10,8 +10,9 @@ namespace SpaceInvaders
 {
     class Game
     {
-
+        public Size gameSize;
         SpaceShip playerShip;
+      
         enum GameState  {PLAY, PAUSE};
         GameState state;
 
@@ -42,7 +43,7 @@ namespace SpaceInvaders
         /// <summary>
         /// Size of the game area
         /// </summary>
-        public Size gameSize;
+        
 
         /// <summary>
         /// State of the keyboard
@@ -90,12 +91,20 @@ namespace SpaceInvaders
         /// <param name="gameSize">Size of the game area</param>
         private Game(Size gameSize)
         {
-            this.playerShip = new SpaceShip(5, gameSize.Width/2-12, gameSize.Height-26,3);
+            this.playerShip = new SpaceShip(5,  new Vecteur2D(gameSize.Width/2-12, gameSize.Height-26),3);
             this.gameSize = gameSize;
+            Bunker bunker1 = new Bunker(new Vecteur2D(gameSize.Width*0.3-87, 500));
+            Bunker bunker2 = new Bunker(new Vecteur2D(gameSize.Width/ 2 - 44 , 500));
+            Bunker bunker3 = new Bunker(new Vecteur2D((gameSize.Width*0.85) -87, 500));
+
+            gameObjects.Add(playerShip);
+            gameObjects.Add(bunker1);
+            gameObjects.Add(bunker2);
+            gameObjects.Add(bunker3);
         }
 
         #endregion
-
+     
         #region methods
 
         /// <summary>
@@ -115,6 +124,7 @@ namespace SpaceInvaders
         /// <param name="g">Graphics to draw in</param>
         public void Draw(Graphics g)
         {
+          
             Font drawFont = new Font("Arial", 20);
             SolidBrush drawBrush = new SolidBrush(Color.Black);
 
@@ -148,8 +158,11 @@ namespace SpaceInvaders
                 gameObjects.UnionWith(pendingNewGameObjects);
                 pendingNewGameObjects.Clear();
                 // GameObject spaceShip = this.playerShip;
+                /*AddNewGameObject(bunker1);
+                AddNewGameObject(bunker2);
+                AddNewGameObject(bunker3);
                 AddNewGameObject(playerShip);
-
+                */
                 if (keyPressed.Contains(Keys.P))
                 {
                     if (state == GameState.PLAY)

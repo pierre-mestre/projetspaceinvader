@@ -9,7 +9,7 @@ namespace SpaceInvaders
     abstract class SimpleObject : GameObject
     {
         public Bitmap image; 
-        public Vecteur2D position = new Vecteur2D();
+        public Vecteur2D position= new Vecteur2D();
         public int lives = 5;
 
         public int Lives { get => lives; set => lives = value; }
@@ -17,7 +17,7 @@ namespace SpaceInvaders
 
         public override void Draw(Game gameInstance, Graphics graphics)
         {
-            graphics.DrawImage(image, Convert.ToSingle(position.X), Convert.ToSingle(position.Y), image.Width, image.Height);
+            graphics.DrawImage(image, (float) position.X, (float) position.Y, image.Width, image.Height);
         }
         public override bool IsAlive()
         {
@@ -29,6 +29,10 @@ namespace SpaceInvaders
             {
                 return false;
             }
+        }
+        public override void Collision(Missile m)
+        {
+            
         }
     }
    
