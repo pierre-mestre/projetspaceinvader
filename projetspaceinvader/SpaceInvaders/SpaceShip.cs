@@ -66,7 +66,7 @@ namespace SpaceInvaders
         {
             if ( this.missile == null || this.missile.IsAlive() == false || this.missile.Position.Y <= 0)
             {
-                this.missile = new Missile(this.position.X + 10, this.position.Y , 1, 1);
+                this.missile = new Missile(this.position.X + 10, this.position.Y , 1, 3);
             }
             
         }

@@ -157,7 +157,16 @@
 					"file": "/C/Users/mestrep/Desktop/projetspaceinvader/projetspaceinvader/SpaceInvaders/Game.cs",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 6355,
+						"encoding": "UTF-8 with BOM",
+						"line_ending": "Windows"
+					}
+				},
+				{
+					"file": "/C/Users/mestrep/Desktop/projetspaceinvader/projetspaceinvader/SpaceInvaders/Bunker.cs",
+					"settings":
+					{
+						"buffer_size": 1909,
 						"encoding": "UTF-8 with BOM",
 						"line_ending": "Windows"
 					}
@@ -166,7 +175,7 @@
 					"file": "/C/Users/mestrep/Desktop/projetspaceinvader/projetspaceinvader/SpaceInvaders/SpaceShip.cs",
 					"settings":
 					{
-						"buffer_size": 2573,
+						"buffer_size": 2486,
 						"encoding": "UTF-8 with BOM",
 						"line_ending": "Windows"
 					}
@@ -220,7 +229,7 @@
 			],
 			"find":
 			{
-				"height": 39.0
+				"height": 27.0
 			},
 			"find_in_files":
 			{
@@ -235,6 +244,8 @@
 				"case_sensitive": false,
 				"find_history":
 				[
+					"weight",
+					"wei",
 					"state",
 					"vecteur2D(",
 					"position(",
@@ -276,7 +287,37 @@
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 0,
+								"buffer_size": 6355,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										2532,
+										2536
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/C#/C#.sublime-syntax",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 162.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 1,
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"file": "/C/Users/mestrep/Desktop/projetspaceinvader/projetspaceinvader/SpaceInvaders/Bunker.cs",
+							"semi_transient": true,
+							"settings":
+							{
+								"buffer_size": 1909,
 								"regions":
 								{
 								},
@@ -294,27 +335,27 @@
 									"translate_tabs_to_spaces": true
 								},
 								"translation.x": 0.0,
-								"translation.y": 2538.0,
+								"translation.y": 378.0,
 								"zoom_level": 1.0
 							},
-							"stack_index": 1,
+							"stack_index": 0,
 							"type": "text"
 						},
 						{
-							"buffer": 1,
+							"buffer": 2,
 							"file": "/C/Users/mestrep/Desktop/projetspaceinvader/projetspaceinvader/SpaceInvaders/SpaceShip.cs",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 2573,
+								"buffer_size": 2486,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										1383,
-										1383
+										1665,
+										1665
 									]
 								],
 								"settings":
@@ -324,10 +365,10 @@
 									"translate_tabs_to_spaces": true
 								},
 								"translation.x": 0.0,
-								"translation.y": 432.0,
+								"translation.y": 108.0,
 								"zoom_level": 1.0
 							},
-							"stack_index": 0,
+							"stack_index": 2,
 							"type": "text"
 						}
 					]
@@ -369,11 +410,11 @@
 				"height": 0.0
 			},
 			"pinned_build_system": "",
-			"position": "0,0,1,-32000,-32000,-1,-1,721,182,182,838",
+			"position": "0,2,3,-32000,-32000,-1,-1,721,182,182,838",
 			"project": "",
 			"replace":
 			{
-				"height": 70.0
+				"height": 50.0
 			},
 			"save_all_on_build": true,
 			"select_file":

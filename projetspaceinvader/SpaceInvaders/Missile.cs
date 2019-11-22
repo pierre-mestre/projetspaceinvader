@@ -19,7 +19,7 @@ namespace SpaceInvaders
 		{
 			this.position = new Vecteur2D(200,200);
 			this.vitesse = 1;
-			this.lives = 5;
+			this.lives = 3;
             this.image = SpaceInvaders.Properties.Resources.shoot1;
         }
 		public Missile(double vitesse, int lives)
