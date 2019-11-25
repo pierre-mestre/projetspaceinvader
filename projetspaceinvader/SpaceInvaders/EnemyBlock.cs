@@ -43,7 +43,7 @@ namespace SpaceInvaders
             for (int i = 0; i < nbShips; i++)
             {
                 int positionX = ((this.size.Width / nbShips+1)*i);
-                this.enemyShips.Add(new SpaceShip(this.vitesseParseconde, new Vecteur2D(positionX, this.position.Y+size.Height),1));
+                this.enemyShips.Add(new SpaceShip(this.vitesseParseconde, new Vecteur2D(positionX, this.position.Y+size.Height),1,shipImage));
                 //positionX = positionX + espace;
 
             }

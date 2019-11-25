@@ -28,7 +28,14 @@ namespace SpaceInvaders
             this.missile = null;
             this.image = SpaceInvaders.Properties.Resources.ship3;
         }
-
+        public SpaceShip(double speedPixelPerSecond, Vecteur2D position, int lives, Bitmap image)
+        {
+            this.speedPixelPerSecond = speedPixelPerSecond;
+            this.position = position;
+            this.lives = lives;
+            this.missile = null;
+            this.image = image;
+        }
         public override void Update(Game gameInstance, double deltaT)
         {
         }
