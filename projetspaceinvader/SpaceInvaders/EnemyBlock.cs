@@ -61,11 +61,35 @@ namespace SpaceInvaders
             {
                 vitesseParseconde = (vitesseParseconde * direction);
                 this.position.Y = this.position.Y + 3;
+                foreach (SpaceShip ennemy in this.enemyShips)
+                {
+                    if (ennemy.position.Y + ennemy.image.Height + vitesseParseconde >= this.position.Y + this.size.Height || ennemy.position.Y <= this.position.Y)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        ennemy.position.Y = ennemy.position.Y + 3;
+                    }
+                    }
                 vitesseParseconde = vitesseParseconde * 1.2;
+                double val  = enemyShips.ElementAt<SpaceShip>(5).position.X;
             }
             else
             {
                 this.position.X = this.position.X + vitesseParseconde;
+                foreach (SpaceShip ennemy in this.enemyShips)
+                {
+                    if (ennemy.position.X + ennemy.image.Width + vitesseParseconde >= this.position.X+this.size.Width || ennemy.position.X <= this.position.X)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        ennemy.position.X = ennemy.position.X + vitesseParseconde;
+                        
+                    }
+                }
             }
             
         }
