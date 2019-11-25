@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -115,7 +115,35 @@ namespace SpaceInvaders
 
         public override void Collision(Missile m)
         {
-           
+            for(int i = 0; i<this.enemyShips.Count; i ++)
+            {
+                if (m.position.X > this.position.X + enemyShips.ElementAt<SpaceShip>(i).image.Width || m.position.Y > this.position.Y + enemyShips.ElementAt<SpaceShip>(i).image.Height || this.position.X > m.position.X + m.image.Width || enemyShips.ElementAt<SpaceShip>(i).position.Y > m.position.Y + m.image.Height)
+                {
+                    //Console.WriteLine("Sylvie la BEST <3");
+                    collisionPixel(m, i);
+
+                }
+                else
+                {
+                    collisionPixel(m, i);
+                }
+            }
+          
+        }
+
+      
+        public void collisionPixel(Missile m, int k)
+        {
+                Vecteur2D start = m.Position - enemyShips.ElementAt<SpaceShip>(k).Position;
+
+                for (int i = 0; i < m.image.Width && (int)(i + start.X) < enemyShips.ElementAt<SpaceShip>(k).image.Width - 1; i++)
+                {
+                    for (int j = 0; start.Y > -1 && j < m.image.Height && (int)(j + start.Y) < enemyShips.ElementAt<SpaceShip>(k).image.Height - 1; j++)
+                    {
+                          enemyShips.ElementAt<SpaceShip>(k).lives --;
+                    }
+                }
+            
         }
     }
 }
