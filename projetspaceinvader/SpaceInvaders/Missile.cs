@@ -43,7 +43,7 @@ namespace SpaceInvaders
         }
 		public override void Update(Game gameInstance, double deltaT){
 			position.Y = position.Y-vitesse;
-            foreach(GameObject gameObject in gameInstance.gameObjects)
+            foreach(GameObject gameObject in gameInstance.gameNewObjects)
             {
                 gameObject.Collision(this);
             }

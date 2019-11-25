@@ -10,9 +10,9 @@ namespace SpaceInvaders
 {
     class SpaceShip : SimpleObject
     {
-        double speedPixelPerSecond = 10;
+        public double speedPixelPerSecond = 10;
 
-        Missile missile = null ;
+        public Missile missile = null ;
 
         public SpaceShip(){
             this.speedPixelPerSecond = 200;
@@ -29,44 +29,16 @@ namespace SpaceInvaders
             this.image = SpaceInvaders.Properties.Resources.ship3;
         }
 
-        public override void Update(Game gameInstance, double deltaT){
-            if (gameInstance.keyPressed.Contains(Keys.Left))
-            {
-                if (this.position.X-speedPixelPerSecond<= 0){
-                    this.position.X = 0;
-                }else{
-                    this.position.X=position.X-speedPixelPerSecond;
-                }
-                 gameInstance.ReleaseKey(Keys.Left);
-            }
-            if (gameInstance.keyPressed.Contains(Keys.Right))
-            {
-                if (this.position.X+speedPixelPerSecond >= gameInstance.gameSize.Width-this.image.Width){
-                    this.position.X = gameInstance.gameSize.Width-this.image.Width;
-                }else{
-                    this.position.X=position.X+speedPixelPerSecond;
-                }
-                 gameInstance.ReleaseKey(Keys.Right);
-            }
-            if (gameInstance.keyPressed.Contains(Keys.Space))
-            {
-                
-                    shoot();
-                    GameObject newObject = this.missile;
-                    gameInstance.AddNewGameObject(newObject);
-                    gameInstance.ReleaseKey(Keys.Space);
-               
-                
-            }
-
+        public override void Update(Game gameInstance, double deltaT)
+        {
         }
-     
+
 
         public void shoot()
         {
             if ( this.missile == null || this.missile.IsAlive() == false || this.missile.Position.Y <= 0)
             {
-                this.missile = new Missile(this.position.X + 10, this.position.Y , 1, 3);
+                this.missile = new Missile(this.position.X + 10, this.position.Y , 3, 3);
             }
             
         }

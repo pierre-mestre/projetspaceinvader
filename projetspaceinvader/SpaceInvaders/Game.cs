@@ -11,7 +11,8 @@ namespace SpaceInvaders
     class Game
     {
         public Size gameSize;
-        SpaceShip playerShip;
+        PlayerSpaceship playerShip;
+        private EnemyBlock enemies;
       
         enum GameState  {PLAY, PAUSE};
         GameState state;
@@ -21,7 +22,7 @@ namespace SpaceInvaders
         /// <summary>
         /// Set of all game objects currently in the game
         /// </summary>
-        public HashSet<GameObject> gameObjects = new HashSet<GameObject>();
+        public HashSet<GameObject> gameNewObjects = new HashSet<GameObject>();
 
         /// <summary>
         /// Set of new game objects scheduled for addition to the game
@@ -91,16 +92,21 @@ namespace SpaceInvaders
         /// <param name="gameSize">Size of the game area</param>
         private Game(Size gameSize)
         {
-            this.playerShip = new SpaceShip(5,  new Vecteur2D(gameSize.Width/2-12, gameSize.Height-26),3);
+            this.playerShip = new PlayerSpaceship(5,  new Vecteur2D(gameSize.Width/2-12, gameSize.Height-26),3);
             this.gameSize = gameSize;
             Bunker bunker1 = new Bunker(new Vecteur2D(gameSize.Width*0.3-87, 500));
             Bunker bunker2 = new Bunker(new Vecteur2D(gameSize.Width/ 2 - 44 , 500));
             Bunker bunker3 = new Bunker(new Vecteur2D((gameSize.Width*0.85) -87, 500));
-
-            gameObjects.Add(playerShip);
-            gameObjects.Add(bunker1);
-            gameObjects.Add(bunker2);
-            gameObjects.Add(bunker3);
+            this.enemies = new EnemyBlock(gameSize.Width/2,10);
+            this.enemies.AddLine(10, 1, SpaceInvaders.Properties.Resources.ship8);
+            this.enemies.AddLine(15, 1, SpaceInvaders.Properties.Resources.ship1);
+            this.enemies.AddLine(13, 1, SpaceInvaders.Properties.Resources.ship8);
+            this.enemies.AddLine(12, 1, SpaceInvaders.Properties.Resources.ship9);
+            gameNewObjects.Add(playerShip);
+            gameNewObjects.Add(bunker1);
+            gameNewObjects.Add(bunker2);
+            gameNewObjects.Add(bunker3);
+            gameNewObjects.Add(enemies);
         }
 
         #endregion
@@ -143,7 +149,7 @@ namespace SpaceInvaders
             }
             
          
-            foreach (GameObject gameObject in gameObjects)
+            foreach (GameObject gameObject in gameNewObjects)
                 gameObject.Draw(this, g);       
         }
 
@@ -155,7 +161,7 @@ namespace SpaceInvaders
             if (state == GameState.PLAY) {
 
                 // add new game objects
-                gameObjects.UnionWith(pendingNewGameObjects);
+                gameNewObjects.UnionWith(pendingNewGameObjects);
                 pendingNewGameObjects.Clear();
                 // GameObject spaceShip = this.playerShip;
                 /*AddNewGameObject(bunker1);
@@ -179,13 +185,13 @@ namespace SpaceInvaders
 
 
                 // update each game object
-                foreach (GameObject gameObject in gameObjects)
+                foreach (GameObject gameObject in gameNewObjects)
                 {
                     gameObject.Update(this, deltaT);
                 }
 
                 // remove dead objects
-                gameObjects.RemoveWhere(gameObject => !gameObject.IsAlive());
+                gameNewObjects.RemoveWhere(gameObject => !gameObject.IsAlive());
             }else if (state == GameState.PAUSE)
             {
                 if (keyPressed.Contains(Keys.P))

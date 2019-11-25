@@ -50,7 +50,12 @@ namespace SpaceInvaders
             {
                 for (int j = 0; start.Y > -1 && j < m.image.Height && (int)(j+start.Y) < this.image.Height-1; j++)
                 {
-                    this.image.SetPixel((int)(i+start.X), (int)(j+start.Y), Color.FromArgb(0, 255, 255, 255));
+                    if (this.image.GetPixel((int)(i + start.X), (int)(j + start.Y)) == Color.FromArgb(255, 0, 0, 0))
+                    {
+                        this.image.SetPixel((int)(i + start.X), (int)(j + start.Y), Color.FromArgb(0, 255, 255, 255));
+                        m.lives--;
+                    }
+                    
                     
                     /*Vecteur2D positionFromScreen = new Vecteur2D(i, j) + m.position;
                     Vecteur2D positionPixelImage = this.position-m.position;
