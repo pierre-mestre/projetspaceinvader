@@ -43,7 +43,7 @@ namespace SpaceInvaders
             for (int i = 0; i < nbShips; i++)
             {
                 int positionX = ((this.size.Width / nbShips+1)*i);
-                this.enemyShips.Add(new SpaceShip(this.vitesseParseconde, new Vecteur2D(positionX, this.position.Y+size.Height),1,shipImage));
+                this.enemyShips.Add(new SpaceShip(this.vitesseParseconde, new Vecteur2D(positionX, this.position.Y+size.Height),10,shipImage));
                 //positionX = positionX + espace;
 
             }
@@ -73,7 +73,6 @@ namespace SpaceInvaders
                     }
                     }
                 vitesseParseconde = vitesseParseconde * 1.2;
-                double val  = enemyShips.ElementAt<SpaceShip>(5).position.X;
             }
             else
             {
@@ -107,10 +106,11 @@ namespace SpaceInvaders
             {
                 if(enemyShips.ElementAt<SpaceShip>(i).IsAlive() == false)
                 {
-                    return false;
+                    enemyShips.Remove(enemyShips.ElementAt<SpaceShip>(i));
+                    //enemyShips.ElementAt<SpaceShip>(i).Lives--;
                 }
             }
-            return true;
+            return enemyShips.Count > 0;
         }
 
         public override void Collision(Missile m)
@@ -125,7 +125,7 @@ namespace SpaceInvaders
                 }
                 else
                 {
-                    collisionPixel(m, i);
+                    //collisionPixel(m, i);
                 }
             }
           
@@ -140,7 +140,7 @@ namespace SpaceInvaders
                 {
                     for (int j = 0; start.Y > -1 && j < m.image.Height && (int)(j + start.Y) < enemyShips.ElementAt<SpaceShip>(k).image.Height - 1; j++)
                     {
-                          enemyShips.ElementAt<SpaceShip>(k).lives --;
+                          enemyShips.ElementAt<SpaceShip>(k).Lives-=1;
                     }
                 }
             

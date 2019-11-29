@@ -46,29 +46,16 @@ namespace SpaceInvaders
         {
             Vecteur2D start = m.Position - this.Position;
 
-            for (int i = 0; i < m.image.Width && (int)(i+start.X) < this.image.Width-1; i++)
+            for (int i = 0;start.X >=0 && i < m.image.Width && (int)(i+start.X) < this.image.Width; i++)
             {
-                for (int j = 0; start.Y > -1 && j < m.image.Height && (int)(j+start.Y) < this.image.Height-1; j++)
+                for (int j = 0; start.Y >= 0 && j < m.image.Height && (int)(j+start.Y) < this.image.Height; j++)
                 {
                     if (this.image.GetPixel((int)(i + start.X), (int)(j + start.Y)) == Color.FromArgb(255, 0, 0, 0))
                     {
                         this.image.SetPixel((int)(i + start.X), (int)(j + start.Y), Color.FromArgb(0, 255, 255, 255));
                         m.lives--;
                     }
-                    
-                    
-                    /*Vecteur2D positionFromScreen = new Vecteur2D(i, j) + m.position;
-                    Vecteur2D positionPixelImage = this.position-m.position;
-                    if (positionPixelImage.X >= this.position.X && 
-                        positionPixelImage.Y >= this.position.Y && 
-                        positionPixelImage.X <= Math.Min(this.position.X + this.image.Width, this.image.Width) && 
-                        positionPixelImage.Y <= Math.Min(this.position.Y + this.image.Height,this.image.Height))
-                    {
-                        if (this.image.GetPixel((int)positionPixelImage.X, (int)positionPixelImage.Y) == Color.FromArgb(255, 0, 0, 0))
-                        {
-                            this.image.SetPixel((int)positionPixelImage.X, (int)positionPixelImage.Y, Color.FromArgb(0, 255, 255, 255));
-                        }
-                    }*/
+                   
                 }
             }
         }
