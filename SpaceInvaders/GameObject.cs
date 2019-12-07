@@ -15,7 +15,7 @@ namespace SpaceInvaders
         public GameObject()
         {
         }
-
+    
         /// <summary>
         /// Update the state of a game objet
         /// </summary>

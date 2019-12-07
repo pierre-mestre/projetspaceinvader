@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameForm));
             this.WorldClock = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
@@ -39,15 +40,15 @@
             // 
             // GameForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 745);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.BackgroundImage = global::SpaceInvaders.Properties.Resources.fond;
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "GameForm";
-            this.Text = "Space Invaders";
+            this.UseWaitCursor = true;
             this.Load += new System.EventHandler(this.GameForm_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameForm_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameForm_KeyDown);

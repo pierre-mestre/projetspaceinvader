@@ -120,4 +120,82 @@
   <metadata name="WorldClock.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>605, 605</value>
+  </data>
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAGBoAAAEAIABQCgAAFgAAACgAAAAYAAAANAAAAAEAIAAAAAAAwAkAABMLAAATCwAAAAAAAAAA
+        AAD///8A////AP///wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AAAA
+        AP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/////AP//
+        /wAAAAD/AAAA/wAAAP8AAAD/////AP///wD///8A////AAAAAP8AAAD/AAAA/wAAAP////8A////AAAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/////AP///wAAAAD/AAAA/wAAAP8AAAD/////AP//
+        /wD///8A////AAAAAP8AAAD/AAAA/wAAAP////8A////AAAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP////8A////AAAAAP8AAAD/AAAA/wAAAP////8A////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP//
+        /wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wAAAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP////8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP//
+        /wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8AAAAA/wAA
+        AP8AAAD/AAAA/////wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP////8A////AP///wD///8AAAAA/wAAAP8AAAD/AAAA/////wD///8A////AP//
+        /wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP//
+        /wD///8AAAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8AAAAA/wAAAP8AAAD/AAAA////
+        /wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wAAAAD/AAAA/wAA
+        AP////8A////AP///wD///8AAAAA/wAAAP8AAAD/AAAA/////wD///8A////AP///wAAAAD/AAAA/wAA
+        AP////8A////AP///wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP//
+        /wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP//
+        /wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP///wD///8A////AP//
+        /wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP////8A////AP///wD///8A////AP///wD///8A////AP//
+        /wD///8A////AP///wD///8A////AP///wD///8A////AP///wAAAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP////8A////AP///wD///8A////AP///wD///8A////AP///wD8PD8ADDwwAAw8MAAMADAA4AAHAOAA
+        BwDgAAcA/AA/APwAPwD8AD8AAAAAAAAAAAADw8AAA8PAAAPDwAADw8AA48PHAOAABwDgAAcA4AAHAPwA
+        PwD8AD8A/AA/AP+B/wD/gf8A/4H/AA==
+</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Space Invaders</value>
+  </data>
+  <data name="&gt;&gt;WorldClock.Name" xml:space="preserve">
+    <value>WorldClock</value>
+  </data>
+  <data name="&gt;&gt;WorldClock.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>GameForm</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

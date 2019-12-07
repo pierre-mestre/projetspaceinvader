@@ -13,39 +13,51 @@ namespace SpaceInvaders
         public double speedPixelPerSecond = 10;
 
         public Missile missile = null ;
+       
+        
 
-        public SpaceShip(){
-            this.speedPixelPerSecond = 200;
-            this.position = new Vecteur2D(0, 0);
-            this.lives = 0;
-            this.missile = null;
-            this.image = SpaceInvaders.Properties.Resources.ship3;
-        }
-        public SpaceShip(double speedPixelPerSecond, Vecteur2D position, int lives ){
+        // 5=ennemie ; 2=Bunker ; 1 = player
+
+
+
+        public SpaceShip(double speedPixelPerSecond, Vecteur2D position, int lives, int ID)
+        {
             this.speedPixelPerSecond = speedPixelPerSecond;
             this.position = position;
             this.lives = lives;
             this.missile = null;
             this.image = SpaceInvaders.Properties.Resources.ship3;
+            this.ID = ID;
         }
-        public SpaceShip(double speedPixelPerSecond, Vecteur2D position, int lives, Bitmap image)
+        public SpaceShip(double speedPixelPerSecond, Vecteur2D position, int lives, Bitmap image, int ID)
         {
             this.speedPixelPerSecond = speedPixelPerSecond;
             this.position = position;
             this.lives = lives;
             this.missile = null;
             this.image = image;
+            this.ID = ID;
         }
         public override void Update(Game gameInstance, double deltaT)
         {
+        
         }
 
 
-        public void shoot()
+        public void shoot(int direction, int lives, int ID, int size)
         {
-            if ( this.missile == null || this.missile.IsAlive() == false || this.missile.Position.Y <= 0)
+            
+            if ( this.missile == null || this.missile.IsAlive() == false )
             {
-                this.missile = new Missile(this.position.X + 10, this.position.Y-this.image.Height ,1,3);
+               if (direction == -1)
+                {
+                    this.missile = new Missile(this.position.X + 10, this.position.Y - this.image.Height, 1, lives, ID, direction);
+                }
+                else if (direction == 1)
+                {
+                    this.missile = new Missile(this.position.X + 10, this.position.Y + this.image.Height, 1, lives, ID, direction);
+                }
+                
             }
             
         }

@@ -10,7 +10,8 @@ namespace SpaceInvaders
     {
         public Bitmap image; 
         public Vecteur2D position= new Vecteur2D();
-        public int lives = 5;
+        public int lives;
+        public int ID = 0;
 
         public int Lives { get => lives; set => lives = value; }
         internal Vecteur2D Position { get => position; set => position = value; }

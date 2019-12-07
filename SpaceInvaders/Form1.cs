@@ -58,7 +58,7 @@ namespace SpaceInvaders
             BufferedGraphics bg = BufferedGraphicsManager.Current.Allocate(e.Graphics, e.ClipRectangle);
             Graphics g = bg.Graphics;
             g.Clear(Color.White);
-
+          
             game.Draw(g);
 
             bg.Render();
@@ -111,6 +111,7 @@ namespace SpaceInvaders
         private void GameForm_KeyUp(object sender, KeyEventArgs e)
         {
             game.keyPressed.Remove(e.KeyCode);
+                
         }
 
         #endregion

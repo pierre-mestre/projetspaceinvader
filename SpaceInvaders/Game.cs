@@ -14,7 +14,7 @@ namespace SpaceInvaders
         PlayerSpaceship playerShip;
         private EnemyBlock enemies;
       
-        enum GameState  {PLAY, PAUSE};
+        enum GameState  {PLAY, PAUSE, WIN, LOST};
         GameState state;
 
 
@@ -92,16 +92,16 @@ namespace SpaceInvaders
         /// <param name="gameSize">Size of the game area</param>
         private Game(Size gameSize)
         {
-            this.playerShip = new PlayerSpaceship(5,  new Vecteur2D(gameSize.Width/2-12, gameSize.Height-26),3);
+            this.playerShip = new PlayerSpaceship(5, new Vecteur2D(gameSize.Width / 2 - 12, gameSize.Height - 26), 10, 1);
             this.gameSize = gameSize;
             Bunker bunker1 = new Bunker(new Vecteur2D(gameSize.Width*0.3-87, 500));
             Bunker bunker2 = new Bunker(new Vecteur2D(gameSize.Width/ 2 - 44 , 500));
             Bunker bunker3 = new Bunker(new Vecteur2D((gameSize.Width*0.85) -87, 500));
             this.enemies = new EnemyBlock(gameSize.Width/2,10);
             this.enemies.AddLine(5, 1, SpaceInvaders.Properties.Resources.ship8);
-            this.enemies.AddLine(9, 1, SpaceInvaders.Properties.Resources.ship1);
-            this.enemies.AddLine(8, 1, SpaceInvaders.Properties.Resources.ship8);
-            this.enemies.AddLine(7, 1, SpaceInvaders.Properties.Resources.ship9);
+            this.enemies.AddLine(5, 1, SpaceInvaders.Properties.Resources.ship1);
+            this.enemies.AddLine(5, 1, SpaceInvaders.Properties.Resources.ship8);
+            this.enemies.AddLine(5, 1, SpaceInvaders.Properties.Resources.ship9);
             gameNewObjects.Add(playerShip);
             gameNewObjects.Add(bunker1);
             gameNewObjects.Add(bunker2);
@@ -137,7 +137,10 @@ namespace SpaceInvaders
             // Create point for upper-left corner of drawing.
             float x = gameSize.Width/2-(state.ToString().Length*10);
             float y = gameSize.Height / 2;
-
+            float xW = (gameSize.Width / 2) - 100;
+            float yW = gameSize.Height / 2;
+            float xL = (gameSize.Width / 2) - 100;
+            float yL = gameSize.Height / 2;
             // Set format of string.
             StringFormat drawFormat = new StringFormat();
             drawFormat.FormatFlags = StringFormatFlags.DisplayFormatControl;
@@ -147,18 +150,37 @@ namespace SpaceInvaders
             {
                 g.DrawString(state.ToString(), drawFont, drawBrush, x, y, drawFormat);
             }
-            
+            if (playerShip.lives < 0)
+            {
+                playerShip.lives = 0;
+            }
+            g.DrawString("VIES: "+playerShip.lives.ToString(), drawFont ,drawBrush, 0, gameSize.Height-30, drawFormat);
          
             foreach (GameObject gameObject in gameNewObjects)
-                gameObject.Draw(this, g);       
+            {
+                gameObject.Draw(this, g);
+            }
+            if (state == GameState.WIN)
+            {
+                g.DrawString("PARTIE GAGNEE", drawFont, drawBrush, xW, yW, drawFormat);
+            }
+            if (state == GameState.LOST)
+            {
+                g.DrawString("PARTIE PERDUE", drawFont, drawBrush, xL, yL, drawFormat);
+            }
+
         }
 
         /// <summary>
         /// Update game
         /// </summary>
+        /// 
+
+
         public void Update(double deltaT)
         {
-            if (state == GameState.PLAY) {
+            if (state == GameState.PLAY)
+            {
 
                 // add new game objects
                 gameNewObjects.UnionWith(pendingNewGameObjects);
@@ -192,7 +214,26 @@ namespace SpaceInvaders
 
                 // remove dead objects
                 gameNewObjects.RemoveWhere(gameObject => !gameObject.IsAlive());
-            }else if (state == GameState.PAUSE)
+
+                if (playerShip.IsAlive() == false)
+                {
+                    state = GameState.LOST;
+                }
+                foreach (SpaceShip s in enemies.EnemyShips)
+                {
+                    if (s.Position.Y >= gameSize.Height)
+                    {
+                        state = GameState.LOST;
+                    }
+                }
+                if (enemies.checkLiveBlock() == false)
+                {
+                    state = GameState.WIN;
+                }
+
+
+            }
+            else if (state == GameState.PAUSE)
             {
                 if (keyPressed.Contains(Keys.P))
                 {
@@ -207,6 +248,10 @@ namespace SpaceInvaders
                     ReleaseKey(Keys.P);
 
                 }
+            }
+            else if (state == GameState.LOST || state == GameState.WIN)
+            {
+
             }
         }
         #endregion
