@@ -17,7 +17,7 @@ namespace SpaceInvaders
         /// <summary>
         /// Instance of the game
         /// </summary>
-        private Game game;
+         Game game;
 
         #region time management
         /// <summary>
@@ -29,8 +29,10 @@ namespace SpaceInvaders
         /// Last update time
         /// </summary>
         long lastTime = 0;
+
+        internal Game Game { get => game; set => game = value; }
         #endregion
-           
+
         #endregion
 
         #region constructor
@@ -40,7 +42,7 @@ namespace SpaceInvaders
         public GameForm()
         {
             InitializeComponent();
-            game = Game.CreateGame(this.ClientSize);
+            Game = Game.CreateGame(this.ClientSize);
             watch.Start();
             WorldClock.Start();
 
@@ -59,7 +61,7 @@ namespace SpaceInvaders
             Graphics g = bg.Graphics;
             g.Clear(Color.White);
           
-            game.Draw(g);
+            Game.Draw(g);
 
             bg.Render();
             bg.Dispose();
@@ -82,9 +84,9 @@ namespace SpaceInvaders
             double deltaT = (nt - lastTime);
 
             for (; deltaT >= maxDelta; deltaT -= maxDelta)
-                game.Update(maxDelta / 1000.0);
+                Game.Update(maxDelta / 1000.0);
 
-            game.Update(deltaT / 1000.0);
+            Game.Update(deltaT / 1000.0);
 
             // remember the time of this update
             lastTime = nt;
@@ -100,7 +102,7 @@ namespace SpaceInvaders
         /// <param name="e"></param>
         private void GameForm_KeyDown(object sender, KeyEventArgs e)
         {
-            game.keyPressed.Add(e.KeyCode);
+            Game.keyPressed.Add(e.KeyCode);
         }
 
         /// <summary>
@@ -110,7 +112,7 @@ namespace SpaceInvaders
         /// <param name="e"></param>
         private void GameForm_KeyUp(object sender, KeyEventArgs e)
         {
-            game.keyPressed.Remove(e.KeyCode);
+            Game.keyPressed.Remove(e.KeyCode);
                 
         }
 

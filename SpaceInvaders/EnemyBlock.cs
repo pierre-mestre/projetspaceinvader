@@ -24,7 +24,7 @@ namespace SpaceInvaders
         {
             this.enemyShips = new HashSet<SpaceShip>();
             this.baseWidth = 400;
-            this.size = new Size(baseWidth, y);
+            this.size = new Size(x, y);
             this.position = new Vecteur2D(x - this.size.Width / 2, y);
             this.bordure = x * 2;
            
@@ -89,13 +89,13 @@ namespace SpaceInvaders
 
                 }
             }
-            if (this.position.X + this.size.Width > gameInstance.gameSize.Width || this.position.X < 0)
+            if (this.position.X + this.size.Width >= gameInstance.gameSize.Width || this.position.X <= 0)
             {
                 this.vitesseParseconde = this.vitesseParseconde * (-1.05);
                 foreach(SpaceShip ships in this.enemyShips)
                 {
                     ships.Position.Y += 10;
-                    ships.Position.X += this.vitesseParseconde;
+                   // ships.Position.X += this.vitesseParseconde;
                 }
                 this.randomShootProbability *= 1.01;
                 /*
@@ -114,6 +114,7 @@ namespace SpaceInvaders
         
         public void updateposition()
         {
+            // fait avec l'aide de sylvie
             double variableX = this.enemyShips.ElementAt<SpaceShip>(0).Position.X;
             double variableY = this.enemyShips.ElementAt<SpaceShip>(0).Position.Y;
             int size = 0;
@@ -122,13 +123,16 @@ namespace SpaceInvaders
                 if (variableX > ships.Position.X)
                 {
                     variableX = ships.Position.X;
-                    size = ships.image.Width;
+                    //size = ships.image.Width;
                 }
-                if (variableX > ships.Position.Y)
+                
+               /* if (variableX > ships.Position.Y)
                 {
                     variableY = ships.Position.Y;
                 }
+                */
             }
+            
             this.position.X = variableX - size / 2;
             this.position.Y = variableY;
         }
@@ -141,19 +145,12 @@ namespace SpaceInvaders
               //  Console.WriteLine(ennemy.position.X.ToString());
             }
             //Console.WriteLine("--------------------------------------------------------------------------------");
-         //   graphics.DrawRectangle(new Pen(Color.Red), new Rectangle((int)this.position.X, (int)this.position.Y, this.size.Width, this.size.Height));
+           // graphics.DrawRectangle(new Pen(Color.Red), new Rectangle((int)this.position.X, (int)this.position.Y, this.size.Width, this.size.Height));
         }
         public override bool IsAlive()
         {
-            for (int i = 0; i < enemyShips.Count; i++)
-            {
-                if (enemyShips.ElementAt<SpaceShip>(i).IsAlive() == false)
-                {
-                    enemyShips.Remove(enemyShips.ElementAt<SpaceShip>(i));
-                    //enemyShips.ElementAt<SpaceShip>(i).Lives--;
-                }
-            }
-               return enemyShips.Count > 0;
+            
+               return enemyShips.Count >= 0;
         }
         public bool checkLiveBlock()
         {
@@ -170,15 +167,15 @@ namespace SpaceInvaders
         {
             for (int i = 0; i < this.enemyShips.Count; i++)
             {
-                double MPosX = m.Position.X;
-                double MPosY = m.Position.Y;
-                double MissileXBoundary = MPosX + this.enemyShips.ElementAt<SpaceShip>(i).image.Width;
-                double MissileYBoundary = MPosY + this.enemyShips.ElementAt<SpaceShip>(i).image.Height;
+                double positionMissileX = m.Position.X;
+                double positionMissileY = m.Position.Y;
+                double MissileXBoundary = positionMissileX + this.enemyShips.ElementAt<SpaceShip>(i).image.Width;
+                double MissileYBoundary = positionMissileY + this.enemyShips.ElementAt<SpaceShip>(i).image.Height;
 
-                double BPosX = this.enemyShips.ElementAt<SpaceShip>(i).position.X;
-                double BPosY = this.enemyShips.ElementAt<SpaceShip>(i).position.Y;
-                double BunkerXBoundary = BPosX + this.enemyShips.ElementAt<SpaceShip>(i).image.Width;
-                double BunkerYBoundary = BPosY + this.enemyShips.ElementAt<SpaceShip>(i).image.Height;
+                double positionBunkerX = this.enemyShips.ElementAt<SpaceShip>(i).position.X;
+                double positionBunkerY = this.enemyShips.ElementAt<SpaceShip>(i).position.Y;
+                double BunkerXBoundary = positionBunkerX + this.enemyShips.ElementAt<SpaceShip>(i).image.Width;
+                double BunkerYBoundary = positionBunkerY + this.enemyShips.ElementAt<SpaceShip>(i).image.Height;
 
 
               /*  if (IsOnTheRight(BPosX, MissileXBoundary) || IsOnTheRight(MPosX, BunkerXBoundary) || IsAbove(BPosY, MissileYBoundary) || IsAbove(MPosY, BunkerYBoundary))
@@ -189,15 +186,15 @@ namespace SpaceInvaders
                 {
                     for (int y = 0; y < m.image.Height; y++)
                     {
-                        double PixelPosX = MPosX + x;
-                        double PixelPosY = MPosY + y;
+                        double PixelPosX = positionMissileX + x;
+                        double PixelPosY = positionMissileY + y;
 
-                        if (IsOnTheRight(PixelPosX, BunkerXBoundary) || IsOnTheRight(BPosX, PixelPosX) || IsAbove(PixelPosY, BunkerYBoundary) || IsAbove(BPosY, PixelPosY))
+                        if (IsOnTheRight(PixelPosX, BunkerXBoundary) || IsOnTheRight(positionBunkerX, PixelPosX) || IsAbove(PixelPosY, BunkerYBoundary) || IsAbove(positionBunkerY, PixelPosY))
                         {
                             continue;
                         }
-                        int MissilePixelOnBunkerPosX = (int)(PixelPosX - BPosX);
-                        int MissilePixelOnBunkerPosY = (int)(PixelPosY - BPosY);
+                        int MissilePixelOnBunkerPosX = (int)(PixelPosX - positionBunkerX);
+                        int MissilePixelOnBunkerPosY = (int)(PixelPosY - positionBunkerY);
 
                         Color pixelColor = this.enemyShips.ElementAt<SpaceShip>(i).image.GetPixel(MissilePixelOnBunkerPosX, MissilePixelOnBunkerPosY);
 
@@ -210,7 +207,15 @@ namespace SpaceInvaders
 
                     }
                 }
-                IsAlive();
+                for (int z = 0;z < enemyShips.Count; z++)
+                {
+                    if (enemyShips.ElementAt<SpaceShip>(z).IsAlive() == false)
+                    {
+                        enemyShips.Remove(enemyShips.ElementAt<SpaceShip>(z));
+                        //enemyShips.ElementAt<SpaceShip>(i).Lives--;
+                        z--;
+                    }
+                }
             }
 
         }

@@ -26,19 +26,20 @@ namespace SpaceInvaders
 
         public override void Collision(Missile m)
         {
+            //fait avec l'aide de Thibault
 
-            double MPosX = m.Position.X;
-            double MPosY = m.Position.Y;
-            double MissileXBoundary = MPosX + this.image.Width;
-            double MissileYBoundary = MPosY + this.image.Height;
+            double positionMissileX = m.Position.X;
+            double positionMissileY = m.Position.Y;
+            double MissileXBoundary = positionMissileX + this.image.Width;
+            double MissileYBoundary = positionMissileY + this.image.Height;
 
-            double BPosX = this.position.X;
-            double BPosY = this.position.Y;
-            double BunkerXBoundary = BPosX + this.image.Width;
-            double BunkerYBoundary = BPosY + this.image.Height;
+            double positionBunkerX = this.position.X;
+            double positionBunkerY = this.position.Y;
+            double BunkerXBoundary = positionBunkerX + this.image.Width;
+            double BunkerYBoundary = positionBunkerY + this.image.Height;
 
 
-              if (IsOnTheRight(BPosX, MissileXBoundary) || IsOnTheRight(MPosX, BunkerXBoundary) || IsAbove(BPosY, MissileYBoundary) || IsAbove(MPosY, BunkerYBoundary))
+              if (IsOnTheRight(positionBunkerX, MissileXBoundary) || IsOnTheRight(positionMissileX, BunkerXBoundary) || IsAbove(positionBunkerY, MissileYBoundary) || IsAbove(positionMissileY, BunkerYBoundary))
               {
                   return;
               }
@@ -46,15 +47,15 @@ namespace SpaceInvaders
             {
                 for (int y = 0; y < m.image.Height; y++)
                 {
-                    double PixelPosX = MPosX + x;
-                    double PixelPosY = MPosY + y;
+                    double PixelPosX = positionMissileX + x;
+                    double PixelPosY = positionMissileY + y;
 
-                    if (IsOnTheRight(PixelPosX, BunkerXBoundary) || IsOnTheRight(BPosX, PixelPosX) || IsAbove(PixelPosY, BunkerYBoundary) || IsAbove(BPosY, PixelPosY))
+                    if (IsOnTheRight(PixelPosX, BunkerXBoundary) || IsOnTheRight(positionBunkerX, PixelPosX) || IsAbove(PixelPosY, BunkerYBoundary) || IsAbove(positionBunkerY, PixelPosY))
                     {
                         continue;
                     }
-                    int MissilePixelOnBunkerPosX = (int)(PixelPosX - BPosX);
-                    int MissilePixelOnBunkerPosY = (int)(PixelPosY - BPosY);
+                    int MissilePixelOnBunkerPosX = (int)(PixelPosX - positionBunkerX);
+                    int MissilePixelOnBunkerPosY = (int)(PixelPosY - positionBunkerY);
 
                     Color pixelColor = this.image.GetPixel(MissilePixelOnBunkerPosX, MissilePixelOnBunkerPosY);
 

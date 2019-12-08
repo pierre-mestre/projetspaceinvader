@@ -19,7 +19,8 @@
     <Position X="4.75" Y="0.5" Width="1.75" />
     <Members>
       <Field Name="blackBrush" Hidden="true" />
-      <Method Name="CreateGame" Hidden="true" />
+      <Method Name="
+              " Hidden="true" />
       <Field Name="defaultFont" Hidden="true" />
       <Property Name="game" Hidden="true" />
       <Method Name="Game" Hidden="true" />

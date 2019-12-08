@@ -85,6 +85,11 @@ namespace SpaceInvaders
                 game = new Game(gameSize);
             return game;
         }
+        public static Game CreateNewGame(Size gameSize)
+        {
+            game = new Game(gameSize);
+            return game;
+        }
 
         /// <summary>
         /// Private constructor
@@ -92,6 +97,7 @@ namespace SpaceInvaders
         /// <param name="gameSize">Size of the game area</param>
         private Game(Size gameSize)
         {
+            //CREATION DES DIFFERENTS OBJETS DANS LE JEUX
             this.playerShip = new PlayerSpaceship(5, new Vecteur2D(gameSize.Width / 2 - 12, gameSize.Height - 26), 10, 1);
             this.gameSize = gameSize;
             Bunker bunker1 = new Bunker(new Vecteur2D(gameSize.Width*0.3-87, 500));
@@ -130,7 +136,7 @@ namespace SpaceInvaders
         /// <param name="g">Graphics to draw in</param>
         public void Draw(Graphics g)
         {
-          
+          //affichage des differents objets
             Font drawFont = new Font("Arial", 20);
             SolidBrush drawBrush = new SolidBrush(Color.Black);
 
@@ -226,7 +232,7 @@ namespace SpaceInvaders
                         state = GameState.LOST;
                     }
                 }
-                if (enemies.checkLiveBlock() == false)
+                if (enemies.EnemyShips.Count == 0)
                 {
                     state = GameState.WIN;
                 }
@@ -251,7 +257,11 @@ namespace SpaceInvaders
             }
             else if (state == GameState.LOST || state == GameState.WIN)
             {
+                if (keyPressed.Contains(Keys.Space))
+                 {
 
+                }
+                
             }
         }
         #endregion
